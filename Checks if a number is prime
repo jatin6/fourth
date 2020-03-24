@@ -1,0 +1,14 @@
+number = 12
+
+NewNumber = (number / 2) + 1
+
+total = 0
+
+for i in range (1, int(NewNumber)):
+	if number % i == 0:
+		total = total + 1
+
+if total == 1:
+	print ("Prime")
+else:
+	print ("Not prime")
