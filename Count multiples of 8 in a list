@@ -1,0 +1,8 @@
+numbers = [10,8,14,4,17,16,80,72]
+total = 0
+
+for i in range (0, len(numbers)):
+	if (numbers[i]%8) == 0:
+		total = total + 1
+		
+print (total)
