@@ -1,7 +1,8 @@
-number =  19
+import math
+number =  189789567 
 
 # NewNumber = (number / 2) + 1
-NewNumber = sqrt(number) + 1
+NewNumber = math.sqrt(number) + 1
 
 numsteps = 0
 total = 0
@@ -32,8 +33,8 @@ when number = 10001, this program takes 5007 steps. 4 + 5000 + 2 + 1
 time complexity of the program is the number of steps taken by the program
 big O notation: O(n)
 
-naive approach is the most basic approach
-optimisation 1: to do it for only number/2
-optimisation 2: to break out of the loop if total is greater than 1
-
+naive approach is the most basic approach. time complexity = big O (n)
+optimisation 1: to do it for only number/2. time complexity = big O (n)
+optimisation 2: to break out of the loop if total is greater than 1. time complexity = big O (n)
+optimisation 3: to do it for only sqrt (number). time complexity = big O (sqrt(n))
 '''
