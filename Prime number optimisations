@@ -1,0 +1,39 @@
+number =  19
+
+# NewNumber = (number / 2) + 1
+NewNumber = sqrt(number) + 1
+
+numsteps = 0
+total = 0
+
+for i in range (1, int(NewNumber)):
+	numsteps = numsteps + 1
+	if number % i == 0:
+		total = total + 1
+		# if total > 1:
+			# break
+
+if total == 1:
+	print ("Prime")
+else:
+	print ("Not prime")
+
+print (numsteps)
+print (numsteps + 7)
+
+'''
+when number = 12, this program takes 13 steps. 4 + 6 + 2 + 1
+when number = 43, this program takes 28 steps. 4 + 21 + 2 + 1
+when number = 10001, this program takes 5007 steps. 4 + 5000 + 2 + 1
+1. the number of steps this program takes depends on the value of number
+2. it is proportional to the value of number
+3. it is actually equal to number/2
+
+time complexity of the program is the number of steps taken by the program
+big O notation: O(n)
+
+naive approach is the most basic approach
+optimisation 1: to do it for only number/2
+optimisation 2: to break out of the loop if total is greater than 1
+
+'''
