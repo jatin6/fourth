@@ -36,7 +36,7 @@ numsteps = 0
 found = False
 print ("S    E    M    n[M]   q" )
 
-while start < end:
+while start <= end:
 	mid = (start+end)//2
 	print (start, end, mid, numbers[mid], query, sep = ' | ')
 	if numbers[mid] == query:
