@@ -1,0 +1,99 @@
+#Recursive function means a function calls itself
+#Eg. : F(n) = F(n-1)+F(n-2). Fibonacci number
+#Non-recursive function means the function will not call itself
+'''
+numbers = [0] * 100
+
+for i in range (0, len(numbers)):
+	numbers[i] = i
+	
+print (numbers)
+
+
+count = 0
+while count < len(numbers):
+	numbers[count] = count
+	count = count + 1
+
+print (numbers)
+
+Runtime error: check boundary conditions (eg. i is exceeding length of array, or i is less than 0)
+			 : when array is accessed that does not exist
+Mistakes: use == to compare. 
+		: delcare variable at start
+'''
+
+numbers = [0] * 100
+
+for i in range (0, len(numbers)):
+	numbers[i] = i*2
+	
+start = 0
+end = len(numbers)-1
+query = 155
+mid = 0
+numsteps = 0
+found = False
+print ("S    E    M    n[M]   q" )
+
+while start < end:
+	mid = (start+end)//2
+	print (start, end, mid, numbers[mid], query, sep = ' | ')
+	if numbers[mid] == query:
+		print ("Yes")
+		found = True
+		break
+	if numbers[mid] > query:
+		end = mid - 1
+	if numbers[mid] < query:
+		start = mid + 1
+	numsteps = numsteps + 1
+
+print (numsteps)
+if found != True:
+	print ("No")
+	
+'''
+num = [0,2,4,6,8,10,12,14,16,18,20]
+start = 0
+end = len(num)-1  # =10
+query = 17
+start | end | mid | num[mid] | query
+0		10	   5      10        17
+5		10	   7	  14
+7		10	   8	  16
+8		10	   9	  18
+8		9	   8	  16
+8	    9	   8	  16
+8		9	   8	  16	#now an infinite loop
+
+
+num = [0,2,4,6,8,10,12,14,16,18,20]
+
+start | end | mid | num[mid] | query
+0		10	   5      10        17
+6		10	   8	  16
+9		10	   9      18
+9		9	   9	  18	#loop will terminate because start is not less than end
+
+
+query = 7
+num = [0,2,4,6,8,10,12,14,16,18,20]
+start | end | mid | num[mid] | query
+0		10	   5	  10		7
+0		4	   2	  4	
+3		4	   3	  6
+4		4	   4	  8 	#loop will terminate because start is not less than end
+
+
+at every step, we compare num[mid] with the query
+there are three possibiilies
+if num[mid] equals our query, the program can stop because the number has been found
+if num[mid] is less than our query, the start value will change to mid+1
+if num[mid] is greater than our query, the end value will change to mid-1
+
+mid = (start+end)/2 
+mid = 5
+num[mid] = 10
+'''
+
