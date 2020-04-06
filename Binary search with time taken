@@ -1,0 +1,44 @@
+import time
+
+print ("Started initialising")
+
+startTime = time.process_time()
+numbers = [0] * 500000000
+print(time.process_time() - startTime)
+
+print ("Initialising")
+
+startTime = time.process_time()
+for i in range (0, len(numbers)):
+	numbers[i] = i*3
+print (time.process_time() - startTime)
+
+print ("Finished initialising")
+
+start = 0
+end = len(numbers)-1
+query = 300
+mid = 0
+numsteps = 0
+found = False
+
+print ("S    E    M    n[M]   q" )
+
+startTime = time.process_time()
+while start <= end:
+	mid = (start+end)//2
+	print (start, end, mid, numbers[mid], query, sep = ' | ')
+	if numbers[mid] == query:
+		print ("Yes")
+		found = True
+		break
+	if numbers[mid] > query:
+		end = mid - 1
+	if numbers[mid] < query:
+		start = mid + 1
+	numsteps = numsteps + 1
+print(time.process_time() - startTime)
+
+print (numsteps)
+if found != True:
+	print ("No")
