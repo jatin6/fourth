@@ -1,0 +1,51 @@
+import time
+
+f = open('mywords.txt', 'r')
+words = f.read().splitlines()
+f.close()
+
+print ("Input a word")
+word = input()
+query = word
+
+print (len(words))
+
+startTime = time.process_time()
+found = False
+for i in range (0, len(words)):
+	if words[i] == word:
+		print ("Found at location", i)
+		found = True
+		break
+print(time.process_time() - startTime)
+
+if found == False:
+	print ("Not found")
+
+for i in range (0, len(words)):
+	words[i] = words[i].lower()
+
+start = 0
+end = len(words)-1
+mid = 0
+numsteps = 0
+found = False
+
+startTime = time.process_time()
+while start <= end:
+	mid = (start+end)//2
+	print (start, end, mid, words[mid], query, sep = ' | ')
+	if words[mid].lower() == query:
+		print ("Yes")
+		found = True
+		break
+	if words[mid].lower() > query:
+		end = mid - 1
+	if words[mid].lower() < query:
+		start = mid + 1
+	numsteps = numsteps + 1
+print(time.process_time() - startTime)
+
+print (numsteps)
+if found != True:
+	print ("No")
